@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projectdetails - Asaad Alibrahin</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<nav class="navbar navbar-dark navbar-expand-lg bg-dark fixed-top shadow">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <div class="brand-logo me-2">AA</div>
+      <span class="fw-bold">Asaad Alibrahin</span>
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="py-5">
+  <div class="container">
+
+    <section class="mb-4 text-start">
+      <img id="heroImage" src="" alt="Project hero" class="project-hero shadow-sm mb-3">
+      <h1 id="projectTitle" class="h3 mb-2">Project titel</h1>
+      <p id="projectIntro" class="mb-3"></p>
+    </section>
+
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <section class="section-block">
+          <h2 class="section-title">Schermindeling / Diagram</h2>
+          <p id="diagram"></p>
+        </section>
+
+        <section class="section-block">
+          <h2 class="section-title">Configuratie / Instellingen</h2>
+          <pre><code id="config"></code></pre>
+        </section>
+
+        <section class="section-block">
+          <h2 class="section-title">Wat heb ik geleerd?</h2>
+          <ul id="resultList" class="mb-0"></ul>
+        </section>
+      </div>
+
+      <div class="col-lg-4">
+        <aside class="card shadow-sm side-card mb-3">
+          <div class="card-body">
+            <h2 class="h6 text-uppercase text-muted mb-3">Project info</h2>
+            <ul class="list-unstyled small mb-0">
+              <li class="mb-2">
+                <strong>Categorie:</strong><br>
+                <span id="category"></span>
+              </li>
+              <li class="mb-2">
+                <strong>Tools:</strong><br>
+                <span id="tools"></span>
+              </li>
+              <li class="mb-2">
+                <strong>Datum:</strong><br>
+                <span id="date"></span>
+              </li>
+            </ul>
+          </div>
+        </aside>
+
+        <div class="d-grid gap-2 mb-3">
+          <a href="portfolio.html" class="btn btn-primary btn-sm w-100">&larr; Terug naar portfolio</a>
+          <div class="project-nav">
+            <a id="prevProject" href="#" class="btn btn-outline-secondary btn-sm flex-fill">Vorig project</a>
+            <a id="nextProject" href="#" class="btn btn-outline-secondary btn-sm flex-fill">Volgend project</a>
+          </div>
+        </div>
+
+        <div class="card side-card">
+          <div class="card-body">
+            <h3 class="h6 text-uppercase text-muted mb-2">Andere projecten</h3>
+            <ul id="otherProjects" class="list-unstyled small mb-0"></ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="py-4 mt-5">
+  <div class="container d-flex justify-content-between">
+    <small>&copy; <span id="year"></span> Asaad Alibrahin</small>
+    <small>Student Systems- en Netwerkbeheer</small>
+  </div>
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const projects = {
+    1: {
+      name: "Project 1 – Datacommunicatie & Netwerken",
+      category: "Datacommunicatie & Netwerken",
+      hero: "assets/images/project1.jpg",
+      intro:
+        "In dit project heb ik een klein bedrijfsnetwerk ontworpen en opgebouwd. Ik heb VLAN's gebruikt om afdelingen te scheiden en routing ingesteld zodat iedereen toch met elkaar kan communiceren.",
+      diagram:
+        "Het netwerkdiagram laat clients, switches, router en internetverbinding zien. Elk VLAN staat voor een afdeling, zoals administratie, IT en gasten.",
+      config:
+`interface gigabitethernet0/1
+ description uplink naar core
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30
+
+interface vlan10
+ ip address 192.168.10.1 255.255.255.0`,
+      learned: [
+        "IP-adressering en subnetten toepassen in een praktisch netwerk.",
+        "Werken met VLAN's, access- en trunkpoorten op switches.",
+        "Begrijpen hoe routing tussen verschillende netwerken werkt."
+      ],
+      tools: "Switches, Router, VLAN-configuratie, Subnetting",
+      date: "2025"
+    },
+    2: {
+      name: "Project 2 – Serverbeheer",
+      category: "Serverbeheer",
+      hero: "assets/images/project2.jpg",
+      intro:
+        "Voor dit project heb ik Windows- en Linuxservers geïnstalleerd en geconfigureerd. Ik heb gebruikers en groepen aangemaakt en gedeelde mappen opgezet.",
+      diagram:
+        "Clients maken verbinding met een fileserver en een applicatieserver. Authenticatie gebeurt via gebruikers en groepen die centraal worden beheerd.",
+      config:
+`# Windows-server
+net localgroup "IT-Admins" asaad /add
+mkdir D:\\Shares\\Afdeling
+icacls D:\\Shares\\Afdeling /grant "Afdeling-Gebruikers":(RX)
+
+# Linux
+adduser student
+usermod -aG sudo student`,
+      learned: [
+        "Servers installeren (Windows / Linux) en basisrollen configureren.",
+        "Gebruikers, groepen en rechten op shares beheren.",
+        "Inzicht krijgen in de rol van servers binnen een netwerk."
+      ],
+      tools: "Windows Server, Linux, Active Directory, Fileshares",
+      date: "2025"
+    },
+    3: {
+      name: "Project 3 – Besturingssystemen",
+      category: "Besturingssystemen",
+      hero: "assets/images/project3.jpg",
+      intro:
+        "Bij Besturingssystemen heb ik gewerkt met verschillende OS'en en virtualisatie. Ik heb geleerd hoe processen, services en updates worden beheerd.",
+      diagram:
+        "Een host-systeem draait meerdere virtuele machines met verschillende besturingssystemen om veilig te testen.",
+      config:
+`# Linux-service
+systemctl status ssh
+systemctl enable ssh
+systemctl restart ssh
+
+# Windows
+Get-Service | Where-Object {$_.Status -eq "Stopped"}`,
+      learned: [
+        "Virtuele machines opzetten en gebruiken voor testen.",
+        "Services en processen beheren op Windows en Linux.",
+        "Basis automatisering uitvoeren met Shell en PowerShell."
+      ],
+      tools: "VirtualBox / Hyper-V, Windows, Linux, Shell, PowerShell",
+      date: "2025"
+    },
+    4: {
+      name: "Project 4 – Cyber Security",
+      category: "Cyber Security",
+      hero: "assets/images/project4.jpg",
+      intro:
+        "In dit project lag de focus op beveiliging van systemen en netwerken. Ik heb gekeken naar sterke wachtwoorden, updates en basis firewallregels.",
+      diagram:
+        "Een firewall staat tussen het interne netwerk en het internet. Alleen noodzakelijk verkeer zoals HTTPS wordt doorgelaten.",
+      config:
+`access-list 100 permit tcp any host 192.168.10.10 eq 443
+access-list 100 deny   ip any any log
+
+# Wachtwoordbeleid
+Minimale lengte: 12 tekens
+Complexiteit: hoofdletters, cijfers en symbolen`,
+      learned: [
+        "Basisprincipes van netwerk- en systeembeveiliging toepassen.",
+        "Firewallregels lezen en eenvoudige regels schrijven.",
+        "Inzien hoe belangrijk updates en sterk wachtwoordbeleid zijn."
+      ],
+      tools: "Firewall, Antivirus, Patchmanagement, Policies",
+      date: "2025"
+    },
+    5: {
+      name: "Project 5 – Monitoring & Logging",
+      category: "Monitoring & Logging",
+      hero: "assets/images/project5.jpg",
+      intro:
+        "Met Monitoring & Logging heb ik systemen in de gaten gehouden met tools en logs. Zo kun je problemen eerder zien en sneller oplossen.",
+      diagram:
+        "Een centrale monitoringserver verzamelt metrics (CPU, RAM, schijf) en logs van servers en netwerkapparatuur.",
+      config:
+`ping 192.168.10.1
+tracert 8.8.8.8
+
+# PowerShell om services te controleren
+Get-Service | Where-Object {$_.Status -eq "Stopped"}`,
+      learned: [
+        "Monitoringtools gebruiken om de gezondheid van systemen te volgen.",
+        "Logbestanden interpreteren bij storingen.",
+        "Alerts instellen voor belangrijke services en resources."
+      ],
+      tools: "Monitoringsoftware, Event Viewer, PowerShell, CLI-tools",
+      date: "2025"
+    },
+    6: {
+      name: "Project 6 – Webtechnologie & Scripting (Python)",
+      category: "Webtechnologie & Scripting",
+      hero: "assets/images/project6.jpg",
+      intro:
+        "In dit project heb ik basis webtechnologie (HTML, CSS) gecombineerd met scripting in Python om simpele taken te automatiseren.",
+      diagram:
+        "Een client benadert een eenvoudige webpagina. Op de achtergrond kunnen scripts data genereren of bestanden verwerken.",
+      config:
+`<!-- HTML-fragment -->
+<div class="card">
+  <h3>Mijn project</h3>
+</div>
+
+# Python-script
+for i in range(1, 6):
+    print("Backup job", i)`,
+      learned: [
+        "Een eenvoudige webpagina bouwen met HTML en CSS.",
+        "Basis Python-scripts schrijven om repetitieve taken te automatiseren.",
+        "Begrijpen hoe scripting en webtechnologie samen gebruikt kunnen worden."
+      ],
+      tools: "HTML, CSS, Python, VS Code, Git",
+      date: "2025"
+    }
+  };
+
+  function loadProject() {
+    const params = new URLSearchParams(window.location.search);
+    const id = parseInt(params.get("project") || "1", 10);
+    const project = projects[id];
+    if (!project) return;
+
+    document.getElementById("heroImage").src = project.hero;
+    document.getElementById("heroImage").alt = project.name;
+    document.getElementById("projectTitle").textContent = project.name;
+    document.getElementById("projectIntro").textContent = project.intro;
+    document.getElementById("diagram").textContent = project.diagram;
+    document.getElementById("config").textContent = project.config;
+    document.getElementById("category").textContent = project.category;
+    document.getElementById("tools").textContent = project.tools;
+    document.getElementById("date").textContent = project.date;
+
+    const list = document.getElementById("resultList");
+    list.innerHTML = "";
+    project.learned.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item;
+      list.appendChild(li);
+    });
+
+    const prev = document.getElementById("prevProject");
+    const next = document.getElementById("nextProject");
+
+    if (id > 1) {
+      prev.href = `naam.html?project=${id - 1}`;
+      prev.classList.remove("disabled");
+    } else {
+      prev.href = "#";
+      prev.classList.add("disabled");
+    }
+
+    if (id < 6) {
+      next.href = `naam.html?project=${id + 1}`;
+      next.classList.remove("disabled");
+    } else {
+      next.href = "#";
+      next.classList.add("disabled");
+    }
+
+    const otherList = document.getElementById("otherProjects");
+    otherList.innerHTML = "";
+    Object.keys(projects).forEach(key => {
+      const pid = parseInt(key, 10);
+      if (pid === id) return;
+      const li = document.createElement("li");
+      const a = document.createElement("a");
+      a.href = `naam.html?project=${pid}`;
+      a.className = "link-light";
+      a.textContent = projects[pid].name;
+      li.appendChild(a);
+      otherList.appendChild(li);
+    });
+  }
+
+  loadProject();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

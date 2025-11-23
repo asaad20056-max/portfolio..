@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Project 5 – Security | Asaad Alibrahin</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow-sm fixed-top">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" href="index.html">
+      <div class="brand-logo me-2">AA</div>
+      <span class="fw-bold">Asaad Alibrahin</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="mainNav">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link active" href="portfolio.html">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="py-5">
+  <div class="container">
+    <img src="assets/images/project5.jpg" alt="Project 5 – Security" class="project-hero shadow-sm">
+
+    <h1 class="h2 mb-2">Project 5 – Security</h1>
+    <p class="text-muted mb-4">
+      Beveiligingsmaatregelen op netwerk- en systeemniveau, zoals firewallregels, antivirus en loganalyse,
+      om het netwerk te beschermen tegen ongewenst verkeer.
+    </p>
+
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <section class="mb-4">
+          <h2 class="h5 mb-2">Schermindeling / Diagram</h2>
+          <p>
+            Een firewall staat tussen het interne netwerk en het internet.
+            Regels bepalen welk verkeer is toegestaan en wat wordt geblokkeerd.
+          </p>
+        </section>
+
+        <section class="mb-4">
+          <h2 class="h5 mb-2">Firewallconfiguratie</h2>
+          <pre class="bg-dark text-white p-3 rounded-3 small mb-0"><code>
+access-list 100 permit tcp any host 192.168.10.10 eq 443
+access-list 100 deny   ip any any log
+          </code></pre>
+        </section>
+
+        <section class="mb-4">
+          <h2 class="h5 mb-2">Resultaat</h2>
+          <ul class="mb-0">
+            <li>Betere bescherming tegen ongewenst verkeer</li>
+            <li>Loggen van verdachte activiteiten</li>
+            <li>Bewustwording van security best practices</li>
+          </ul>
+        </section>
+      </div>
+
+      <div class="col-lg-4">
+        <aside class="card shadow-sm side-card">
+          <div class="card-body">
+            <h2 class="h6 text-uppercase text-muted mb-3">Project info</h2>
+            <ul class="list-unstyled small mb-0">
+              <li class="mb-2"><strong>Categorie:</strong><br>Security</li>
+              <li class="mb-2"><strong>Tools:</strong><br>Firewall, Antivirus, Loganalyse</li>
+              <li class="mb-2"><strong>Datum:</strong><br>2025</li>
+            </ul>
+          </div>
+        </aside>
+
+        <a href="portfolio.html" class="btn btn-primary w-100 mt-3">&larr; Terug naar portfolio</a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="py-4 bg-dark text-white-50">
+  <div class="container d-flex justify-content-between flex-wrap gap-2">
+    <small>&copy; <span id="year"></span> Asaad Alibrahin</small>
+    <small>Student Systems- en Netwerkbeheer</small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+:root{
+  --brand:#0d6efd;
+  --accent:#27a7a1;
+  --bg:#0f1216;
+  --card:#151a21;
+  --text:#e9edf1;
+  --muted:#9aa4af;
+}
+html, body { height: 100%; }
+body{
+  font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.6;
+}
+.bg-primary{ background-color:var(--brand)!important; }
+.btn-outline-primary{ color:var(--brand); border-color:var(--brand); }
+.btn-outline-primary:hover{ background:var(--brand); color:#fff; }
+.text-gradient{
+  background:linear-gradient(90deg,var(--brand),var(--accent));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+main{ min-height:70vh; }
+.hero-section{ min-height:60vh; display:grid; align-items:center; }
+.hero-photo{ aspect-ratio:1/1; object-fit:cover; border-radius:1rem; }
+.card{ background:var(--card); border:1px solid rgba(255,255,255,.06); }
+.card .card-title{ color:var(--text); }
+.card .card-text{ color:var(--muted); }
+footer{ border-top:1px solid rgba(255,255,255,.06); }
+.navbar .nav-link{ font-weight:500; }
+.navbar .nav-link.active, .navbar .nav-link:hover{ opacity:.9; }
