@@ -1,4 +1,4 @@
-/* Basic reset */
+
 *,
 *::before,
 *::after {
@@ -11,11 +11,11 @@ body {
     "Tahoma", "Arial", sans-serif;
   background: radial-gradient(circle at top, #111827 0, #020617 55%, #000 100%);
   color: #e5e7eb;
-  padding-top: 72px; /* fixed navbar */
+  padding-top: 72px; 
   line-height: 1.6;
 }
 
-/* Links */
+
 a {
   text-decoration: none;
 }
@@ -24,7 +24,7 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Navbar & logo */
+
 .navbar-brand span {
   letter-spacing: 0.5px;
 }
@@ -52,7 +52,7 @@ a:hover {
   border-bottom: 2px solid #0d6efd;
 }
 
-/* Hero section (home) */
+
 .hero-section {
   padding: 4rem 0 2.5rem;
 }
@@ -63,7 +63,7 @@ a:hover {
   border: 2px solid rgba(148, 163, 184, 0.5);
 }
 
-/* Focus cards */
+
 .focus-card {
   background: #020617;
   border-radius: 1rem;
@@ -71,7 +71,7 @@ a:hover {
   border: 1px solid rgba(148, 163, 184, 0.3);
 }
 
-/* Portfolio cards */
+
 .project-card {
   background: #020617;
   border-radius: 1rem;
@@ -85,7 +85,7 @@ a:hover {
 .project-card img {
   display: block;
   width: 100%;
-  height: 150px;       /* أصغر من قبل */
+  height: 150px;       
   object-fit: cover;
 }
 
@@ -104,11 +104,11 @@ a:hover {
   font-size: 0.9rem;
 }
 
-/* Project detail page */
+
 .project-hero,
 #heroImage {
   width: 100%;
-  height: 180px;       /* أصغر من قبل */
+  height: 180px;       
   object-fit: cover;
   border-radius: 1rem;
   margin-bottom: 1.25rem;
@@ -126,12 +126,12 @@ main li {
   font-size: 1rem;
 }
 
-/* muted text أخف لكن واضح */
+
 .text-muted {
   color: #d1d5db !important;
 }
 
-/* Section titles */
+
 .section-title {
   font-size: 1rem;
   font-weight: 600;
@@ -142,14 +142,14 @@ main li {
   margin-bottom: 1.5rem;
 }
 
-/* Side card */
+
 .side-card {
   background: #020617;
   border-radius: 1rem;
   border: 1px solid rgba(148, 163, 184, 0.35);
 }
 
-/* Code blocks */
+
 pre {
   background: #020617 !important;
   border-radius: 0.75rem;
@@ -173,11 +173,11 @@ pre {
 }
 
 .contact-intro {
-  color: #f9fafb;  /* نص واضح */
+  color: #f9fafb; 
 }
 
 .contact-note {
-  color: #e5e7eb; /* ملاحظة أسفل معلومات الاتصال */
+  color: #e5e7eb; 
 }
 
 .form-card {
@@ -203,13 +203,13 @@ pre {
   box-shadow: 0 0 0 0.16rem rgba(13, 110, 253, 0.35);
 }
 
-/* Footer */
+
 footer {
   border-top: 1px solid rgba(148, 163, 184, 0.4);
   font-size: 0.875rem;
 }
 
-/* Project navigation buttons */
+
 .project-nav {
   display: flex;
   flex-wrap: wrap;
@@ -221,3 +221,4 @@ footer {
   opacity: 0.4;
   pointer-events: none;
 }
+
